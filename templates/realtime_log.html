@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>real time log</title>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            interval_id=setInterval(fresh, 2000);
+            function fresh() {
+                $.getJSON("fresh", function (report_dict) {
+{#                    alert(report_dict["success"])#}
+                    $("#article_success").text(report_dict["article_success"])
+                    $("#article_fail").text(report_dict["article_fail"])
+                    $("#article_exist").text(report_dict["article_exist"])
+                    $("#news_success").text(report_dict["news_success"])
+                    $("#news_fail").text(report_dict["news_fail"])
+                    status=report_dict["status"]
+                    $("#status").text(report_dict["status"])
+                    if(status!="running"){
+                        clearInterval(interval_id)
+                    }
+
+                })
+            }
+        });
+    </script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>文章</th>
+    </tr>
+    <tr>
+        <td>成功数:</td>
+        <td id="article_success"></td>
+    </tr>
+    <tr>
+        <td>失败数:</td>
+        <td id="article_fail"></td>
+    </tr>
+    <tr>
+        <td>已存在:</td>
+        <td id="article_exist"></td>
+    </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <th>新闻详情</th>
+    </tr>
+    <tr>
+        <td>成功数:</td>
+        <td id="news_success"></td>
+    </tr>
+    <tr>
+        <td>失败数:</td>
+        <td id="news_fail"></td>
+    </tr>
+</table>
+</body>
+<table border="2">
+    <tr>
+        <th>状态：</th>
+        <td id="status"></td>
+    </tr>
+</table>
+</html>
