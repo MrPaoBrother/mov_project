@@ -37,3 +37,21 @@ class MovieComments(models.Model):
         verbose_name = "评论内容"
         verbose_name_plural = verbose_name
         db_table = 'movie_comments'
+
+
+@python_2_unicode_compatible
+class MovieMsg(models.Model):
+    director = models.CharField(max_length=50, default="导演", verbose_name="导演")
+    actors = models.TextField(default="演员", verbose_name="演员")
+    type = models.CharField(max_length=100, default="演员", verbose_name="演员")
+    release_date = models.CharField(max_length=100, default="地方/发布时间", verbose_name="发布地/时间")
+    intro = models.TextField(default='简介', verbose_name="电影简介")
+    mov_id = models.IntegerField(default=0, verbose_name='电影id')
+
+    def __str__(self):
+        return "电影"
+
+    class Meta:
+        verbose_name = "其他信息"
+        verbose_name_plural = verbose_name
+        db_table = 'mov_msg'

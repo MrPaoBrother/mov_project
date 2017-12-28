@@ -13,30 +13,16 @@ from spider_board import models
 
 # ORM中数据库表名的映射
 tables_dict = {
-    '百度指数': 'BaiduindexSpider',
-    '微信' : 'WechatSpider',
-    '知乎' : 'ZhihuSpider',
-    '考研帮': 'KaoyanbangSpider',
-    '贴吧': 'TiebaSpider',
-    '新闻': 'GeneralNewsSpider',
-    '搜狗新闻_网易': 'GeneralNewsSpider',
-    '搜狗新闻_腾讯': 'GeneralNewsSpider',
-    '头条': 'ToutiaoSpider',
-    '芥末堆': 'JiemoduiSpider',
-    '家长帮': 'JiazhangbangSpider',
+    '电影详情': 'MovDetailSpider',
+    '电影评论' : 'MovCommentsSpider',
+    '其他信息' : 'MovMsgSpider',
 }
 
 
 platform_dict = {
-    u'微信': 1,
-    u'知乎': 2,
-    u'头条': 3,
-    u'芥末堆': 4,
-    u'考研帮': 8,
-    u'贴吧': 9,
-    u'家长帮': 11,
-    u'搜狗新闻_网易': 12,
-    u'搜狗新闻_腾讯': 13,
+    u'豆瓣': 1,
+    u'腾讯': 2,
+    u'暴风': 3,
 }
 
 

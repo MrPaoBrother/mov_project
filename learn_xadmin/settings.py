@@ -104,13 +104,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'xm',
-        'USER':"root",
+        'USER':"Ubuntu",
         'PASSWORD':'d(8Vr!zmmaYrbW?y',
         'HOST':'45.77.150.109',
         'PORT':3306
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
