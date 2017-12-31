@@ -104,10 +104,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'xm',
-        'USER':"Ubuntu",
-        'PASSWORD':'d(8Vr!zmmaYrbW?y',
-        'HOST':'45.77.150.109',
-        'PORT':3306
+        'USER': "Ubuntu",
+        'PASSWORD': 'd(8Vr!zmmaYrbW?y',
+        'HOST': '45.77.150.109',
+        'PORT': 3306
     }
 }
 

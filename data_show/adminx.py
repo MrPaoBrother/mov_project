@@ -24,3 +24,26 @@ class MovieMsgAdmin(object):
     list_display = ('id', 'director', 'actors', 'type', 'release_date', 'intro', 'mov_id')
 
     search_fields = ['mov_id', 'director', 'actors', 'type']
+
+
+@xadmin.sites.register(MovieData)
+class MovieDataAdmin(object):
+    list_display = ('id', 'mov_name', 'mov_director', 'mov_actors', 'mov_type', 'mov_release', 'mov_rate', 'mov_intro', 'mov_url')
+
+    search_fields = ['id', 'mov_name', 'mov_director', 'mov_actors', 'mov_type']
+
+
+@xadmin.sites.register(MovieFenci)
+class MovieFenciAdmin(object):
+    list_display = ('id', 'mov_id', 'comment_id', 'comment_words')
+
+    search_fields = ['id', 'mov_id', 'comment_words']
+
+
+@xadmin.sites.register(MovieWords)
+class MovieWordsAdmin(object):
+    list_display = ('word', 'counts')
+
+    search_fields = ['word']
+
+

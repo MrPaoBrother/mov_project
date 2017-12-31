@@ -43,7 +43,7 @@ class MovieComments(models.Model):
 class MovieMsg(models.Model):
     director = models.CharField(max_length=50, default="导演", verbose_name="导演")
     actors = models.TextField(default="演员", verbose_name="演员")
-    type = models.CharField(max_length=100, default="演员", verbose_name="演员")
+    type = models.CharField(max_length=100, default="类型", verbose_name="类型")
     release_date = models.CharField(max_length=100, default="地方/发布时间", verbose_name="发布地/时间")
     intro = models.TextField(default='简介', verbose_name="电影简介")
     mov_id = models.IntegerField(default=0, verbose_name='电影id')
@@ -55,3 +55,53 @@ class MovieMsg(models.Model):
         verbose_name = "其他信息"
         verbose_name_plural = verbose_name
         db_table = 'mov_msg'
+
+
+# 汇总表
+@python_2_unicode_compatible
+class MovieData(models.Model):
+    mov_name = models.CharField(max_length=200, default="影片名称", verbose_name="影片名称")
+    mov_director = models.CharField(max_length=200, default="导演", verbose_name="导演")
+    mov_actors = models.TextField(default="演员", verbose_name="演员")
+    mov_type = models.CharField(max_length=200, default="类型", verbose_name="类型")
+    mov_release = models.CharField(max_length=100, default="发布地/时间", verbose_name="发布地/时间")
+    mov_rate = models.CharField(max_length=50, default="好评率", verbose_name="好评率")
+    mov_intro = models.TextField(default="简介", verbose_name="简介")
+    mov_url = models.CharField(max_length=200, default="链接", verbose_name="链接")
+
+    def __str__(self):
+        return "综合信息"
+
+    class Meta:
+        verbose_name = "综合信息"
+        verbose_name_plural = verbose_name
+        db_table = 'mov_data'
+
+
+@python_2_unicode_compatible
+class MovieFenci(models.Model):
+    mov_id = models.IntegerField(default=0, verbose_name="电影id")
+    comment_id = models.IntegerField(default=0, verbose_name="评论id")
+    comment_words = models.TextField(default="", verbose_name="评论分词")
+
+    def __str__(self):
+        return "影评分词信息"
+
+    class Meta:
+        verbose_name = "影评分词信息"
+        verbose_name_plural = verbose_name
+        db_table = 'mov_fenci'
+
+
+@python_2_unicode_compatible
+class MovieWords(models.Model):
+    word = models.CharField(max_length=100, default="词汇", verbose_name="词汇")
+    counts = models.IntegerField(default=0, verbose_name="出现频次")
+
+    def __str__(self):
+        return "词频信息"
+
+    class Meta:
+        verbose_name = "词频信息"
+        verbose_name_plural = verbose_name
+        db_table = 'mov_words'

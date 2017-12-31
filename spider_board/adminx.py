@@ -5,6 +5,7 @@ from xadmin import views
 import xadmin
 from .models import *
 from .button_post import start_button, result_button, result_url
+from data_show.models import MovieDetail, MovieComments, MovieMsg
 
 
 @xadmin.sites.register(views.website.IndexView)
@@ -20,11 +21,12 @@ class MainDashboard(object):
         [
             {"type": "qbutton",
              "title": "Quick Start",
-             "btns": [{"model": MovSpider},
-                      {"title": "主页", "url": "http://www.pku.edu.cn"},
-                      {"title": "其他", "url": "http://www.baidu.com"},
+             "btns": [{"model": MovMasterSpider},
+                      {"model": MovieDetail},
+                      {"model": MovieComments},
+                      {"model": MovieMsg}
                       ]},
-            {"type": "addform", "model": MovSpider}
+            {"type": "addform", "model": MovMasterSpider}
         ]
     ]
 
